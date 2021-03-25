@@ -1,6 +1,6 @@
 <?php
 
-use App\Enums\Status;
+use App\Enums\UserStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('status')->default(Status::ACTIVE);
+            $table->string('status')->default(UserStatus::ACTIVE);
             $table->boolean('is_admin')->default(0);
             $table->boolean('is_teammate')->default(0);
             $table->json('roles')->nullable();

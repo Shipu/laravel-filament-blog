@@ -20,11 +20,12 @@ class PushNotificationResource extends Resource
     {
         return $form
             ->schema([
+                Components\FileUpload::make('image')->image(),
                 Components\TextInput::make('title')->autofocus()->required(),
                 Components\Textarea::make('body')->autofocus()->required(),
-                Components\TextInput::make('notification_type')->autofocus()->required(),
-                Components\TextInput::make('redirect_url')->autofocus()->required(),
-                Components\Image::make('redirect_url')->autofocus()->required(),
+                Components\TextInput::make('topic')->autofocus()->required(),
+                Components\TextInput::make('type')->autofocus()->required(),
+                Components\TextInput::make('redirect_url')->autofocus(),
             ]);
     }
 
@@ -32,7 +33,14 @@ class PushNotificationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Columns\Text::make('title')
+                    ->primary()
+                    ->searchable()
+                    ->sortable(),
+                Columns\Text::make('topic')
+                    ->primary()
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //

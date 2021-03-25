@@ -4,7 +4,7 @@
 namespace App\Enums;
 
 
-interface Status
+interface UserStatus
 {
     const ACTIVE = 'active';
     const INACTIVE = 'inactive';

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PushNotification extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'body',
+        'topic',
+        'type',
+        'resource_type',
+        'resource_id',
+        'redirect_url',
+        'image'
+    ];
 }

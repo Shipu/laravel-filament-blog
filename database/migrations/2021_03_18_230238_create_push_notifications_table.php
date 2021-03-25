@@ -15,6 +15,14 @@ class CreatePushNotificationsTable extends Migration
     {
         Schema::create('push_notifications', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('body');
+            $table->string('type');
+            $table->string('topic');
+            $table->string('resource_type')->nullable();
+            $table->string('resource_id')->nullable();
+            $table->string('redirect_url')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
