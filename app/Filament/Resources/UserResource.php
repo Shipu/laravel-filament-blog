@@ -57,4 +57,9 @@ class UserResource extends \Filament\Resources\UserResource
 
         return $table->columns($columns);
     }
+
+    public static function navigationItems()
+    {
+        return [];
+    }
 }

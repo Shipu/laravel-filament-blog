@@ -3,12 +3,10 @@
 namespace App\Filament\Pages;
 
 use App\Models\Setting;
-use Filament\Filament;
 use Filament\Forms\HasForm;
 use Filament\Pages\Page;
 use Filament\Resources\Forms\Components;
 use Filament\Resources\Forms\Form;
-use Illuminate\Support\Str;
 
 class Settings extends Page
 {
@@ -33,6 +31,8 @@ class Settings extends Page
     public function getForm(): Form
     {
         $form = app(Form::class);
+
+        $form->livewire(Setting::getAll());
 
         return $form->schema([
             Components\Tabs::make('Label')
