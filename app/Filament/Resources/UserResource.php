@@ -20,12 +20,19 @@ class UserResource extends \Filament\Resources\UserResource
 
         $schema = $form->getSchema();
 
-        $schema[0] = Components\TextInput::make('email')
-            ->label('filament::resources/user-resource.form.email.label')
-            ->email()
-            ->disableAutocomplete()
-            ->required()
-            ->unique(static::getModel(), 'email', true);
+        $schema[0] = Components\Grid::make([
+            Components\TextInput::make('email')
+                ->label('filament::resources/user-resource.form.email.label')
+                ->email()
+                ->disableAutocomplete()
+                ->required()
+                ->unique(static::getModel(), 'email', true),
+            Components\TextInput::make('phone')
+                ->label('validation.attributes.phone')
+                ->disableAutocomplete()
+                ->required()
+                ->unique(static::getModel(), 'phone', true),
+        ]);
 
         array_unshift($schema, Components\Grid::make([
             Components\TextInput::make('first_name')
